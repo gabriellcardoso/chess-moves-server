@@ -1,0 +1,25 @@
+{
+  "name": "chess-moves-server",
+  "version": "0.1.0",
+  "description": "A server to return possible moves from chess pieces.",
+  "main": "src/server.js",
+  "scripts": {
+    "test": "mocha test/**/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gabriellcardoso/chess-moves-server.git"
+  },
+  "keywords": [
+    "chess",
+    "server",
+    "nodejs",
+    "api"
+  ],
+  "author": "gabriellcardoso",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gabriellcardoso/chess-moves-server/issues"
+  },
+  "homepage": "https://github.com/gabriellcardoso/chess-moves-server#readme"
+}
