@@ -1,5 +1,5 @@
-const expect = require('chai').expect;
 const PositionUtils = require('../../src/utils/position');
+const { expect } = require('chai');
 
 describe('Given a PositionUtils', () => {
     
@@ -43,12 +43,12 @@ describe('Given a PositionUtils', () => {
             {notation: 'F5', expected: 6},
             {notation: 'G8', expected: 7},
             {notation: 'H7', expected: 8}
-        ]
+        ];
         
-        suite.map(item => {
-            describe(`and notation is ${item.notation}`, () => {
-                it(`should return ${item.expected}`, () => {
-                    expect(PositionUtils.getX(item.notation)).to.eql(item.expected);
+        suite.map(testCase => {
+            describe(`and notation is ${testCase.notation}`, () => {
+                it(`should return ${testCase.expected}`, () => {
+                    expect(PositionUtils.getX(testCase.notation)).to.eql(testCase.expected);
                 });
             }); 
         });
@@ -66,10 +66,10 @@ describe('Given a PositionUtils', () => {
             {notation: 'H8', expected: 8}
         ];
         
-        suite.map(item => {
-            describe(`and notation is ${item.notation}`, () => {
-                it(`should return ${item.expected}`, () => {
-                    expect(PositionUtils.getY(item.notation)).to.eql(item.expected);
+        suite.map(testCase => {
+            describe(`and notation is ${testCase.notation}`, () => {
+                it(`should return ${testCase.expected}`, () => {
+                    expect(PositionUtils.getY(testCase.notation)).to.eql(testCase.expected);
                 });
             }); 
         });
@@ -112,8 +112,23 @@ describe('Given a PositionUtils', () => {
     });
     
     describe('when transforming from position to notation', () => {
-        it('should return the correct notation', () => {
-            expect(PositionUtils.toNotation({ x: 2, y: 5 })).to.eql('B5');
+        const suite = [
+            {position: {x: 1, y: 1}, expected: 'A1'},
+            {position: {x: 2, y: 2}, expected: 'B2'},
+            {position: {x: 3, y: 3}, expected: 'C3'},
+            {position: {x: 4, y: 4}, expected: 'D4'},
+            {position: {x: 5, y: 5}, expected: 'E5'},
+            {position: {x: 6, y: 6}, expected: 'F6'},
+            {position: {x: 7, y: 7}, expected: 'G7'},
+            {position: {x: 8, y: 8}, expected: 'H8'}
+        ];
+
+        suite.map(testCase => {
+            describe(`and position (${testCase.position.x},${testCase.position.y})`, () => {
+                it(`should return ${testCase.expected}`, () => {
+                    expect(PositionUtils.toNotation(testCase.position)).to.eql(testCase.expected);
+                });
+            });
         });
     });
     
