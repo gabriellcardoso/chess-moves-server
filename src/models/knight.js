@@ -1,12 +1,12 @@
-const PositionUtils = require('../utils/moves');
+const PositionUtils = require('../utils/position');
 
 const directions = [
     { x:  2, y:  1 },
     { x:  2, y: -1 },
     { x: -2, y:  1 },
     { x: -2, y: -1 },
-    { x:  1, y: -2 },
-    { x: -1, y: -2 },
+    { x:  1, y:  2 },
+    { x: -1, y:  2 },
     { x:  1, y: -2 },
     { x: -1, y: -2 }
 ];
@@ -14,22 +14,31 @@ const directions = [
 class Knight {
 
     constructor(notation) {
-        this.position = PositionUtils.fromNotation(notation);
+        this.position = PositionUtils.toPosition(notation);
     }
     
     getMoves() {
-        const firstTurnMoves = this.getMovesForPosition(this.position.x, this.position.y);
-        const secondTurnMoves = [];
+        const firstTurnMoves = this._getMovesForPosition(this.position.x, this.position.y);
+        let secondTurnMoves = [];
         
         firstTurnMoves.forEach(position => {
-            const moves = this.getMovesForPosition(position.x, position.y);
+            let moves = this._getMovesForPosition(position.x, position.y);
             secondTurnMoves = secondTurnMoves.concat(moves);
         });
         
-        return firstTurnMoves.concat(secondTurnMoves);
+        const allMoves = firstTurnMoves.concat(secondTurnMoves);
+        const moves = [];
+        
+        allMoves.forEach(move => {
+            if (!moves.some(position => PositionUtils.areEquals(move, position))) {
+                moves.push(move);
+            }
+        });
+
+        return moves;
     }
     
-    static getMovesForPosition(x, y) {
+    _getMovesForPosition(x, y) {
         const moves = [];
         
         directions.forEach(direction => {
