@@ -44,6 +44,11 @@ class PositionUtils {
         return number > 0 && number < 9;
     }
 
+    static areEquals(positionA, positionB) {
+        return positionA.x === positionB.x
+            && positionA.y === positionB.y;
+    }
+
     static toNotation(position) {
         return String.fromCharCode(position.x + firstBase) + String.fromCharCode(position.y + secondBase);
     }

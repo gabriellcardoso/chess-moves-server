@@ -110,6 +110,19 @@ describe('Given a PositionUtils', () => {
             });
         });
     });
+
+    describe('when checking if positions are equals', () => {
+        describe('and positions are equal', () => {
+            it('should return true', () => {
+                expect(PositionUtils.areEquals({x: 1, y: 1}, {x: 1, y: 1})).to.be.true;
+            });
+        });
+        describe('and positions arent equal', () => {
+            it('should return false', () => {
+                expect(PositionUtils.areEquals({x: 1, y: 1}, {x: 2, y: 2})).to.be.false;
+            });
+        });
+    });
     
     describe('when transforming from position to notation', () => {
         const suite = [
