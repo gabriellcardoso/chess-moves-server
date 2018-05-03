@@ -4,6 +4,9 @@
   "description": "A server to return possible moves from chess pieces.",
   "main": "src/server.js",
   "scripts": {
+    "dev": "./node_modules/.bin/nodemon src/server.js --watch src",
+    "dev-test": "npm test -- --watch tests",
+    "start": "node src/server.js",
     "test": "mocha tests/**/*.js"
   },
   "repository": {

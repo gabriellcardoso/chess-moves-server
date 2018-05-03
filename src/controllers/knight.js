@@ -1,20 +1,24 @@
 const express = require('express');
 const Knight = require('../models/knight');
-const PositionUtils = require('../models/');
+const PositionUtils = require('../utils/position');
+
+const KnightController = express.Router();
+
+KnightController.get('/:notation/moves/', getKnightMoves);
 
 function getKnightMoves(request, response, next) { 
     try {
-        const { position } = request.params;
-        const moves = new Knight(position).getMoves().map(PositionUtils.toNotation);
-        response.status(200).send(moves);
+        const { notation } = request.params;
+        
+        const position = PositionUtils.toPosition(notation);
+        const moves = new Knight(position).getMoves();
+        const notations = moves.map(move => PositionUtils.toNotation(move));
+
+        response.status(200).send(notations);
     }
     catch (error) {
         response.status(400).send(error);
     }
 }
 
-const controller = express.Router();
-
-controller.get('/:position/moves/', getKnightMoves);
-
-module.exports = controller;
+module.exports = KnightController;

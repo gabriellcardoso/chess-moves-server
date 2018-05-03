@@ -13,8 +13,8 @@ const directions = [
 
 class Knight {
 
-    constructor(notation) {
-        this.position = PositionUtils.toPosition(notation);
+    constructor(position) {
+        this.position = position;
     }
     
     getMoves() {
@@ -26,10 +26,9 @@ class Knight {
             secondTurnMoves = secondTurnMoves.concat(moves);
         });
         
-        const allMoves = firstTurnMoves.concat(secondTurnMoves);
         const moves = [];
         
-        allMoves.forEach(move => {
+        secondTurnMoves.forEach(move => {
             if (!moves.some(position => PositionUtils.areEquals(move, position))) {
                 moves.push(move);
             }
