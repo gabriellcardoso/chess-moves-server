@@ -44,7 +44,7 @@ $ npm test
 	- `:annotation`:
 		- Required: `true`
 		- Accepts: `A1, A2, A3, A4, A5, A6, A7, A8, B1, B2, B3, ..., H7, H8.`
-- Reponse
+- Response
 	- Success
 		- Status: `200`
 		- Content-Type: `application/json`
