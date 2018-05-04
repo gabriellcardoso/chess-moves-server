@@ -46,6 +46,6 @@ By contributing, you agree that your contributions will be licensed under its MI
 [EditorConfig]: http://editorconfig.org/
 [Visual Studio Code]: https://code.visualstudio.com/
 [Github Flow]: https://guides.github.com/introduction/flow/index.html
-[Github's Issues]: https://github.com/briandk/transcriptase-atom/issues
+[Github's Issues]: https://github.com/gabriellcardoso/chess-moves-server/issues
 [new issue]: https://github.com/gabriellcardoso/chess-moves-server/issues/new
 [LICENSE.md]: LICENSE.md
