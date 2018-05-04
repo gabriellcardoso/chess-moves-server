@@ -8,5 +8,6 @@ app.use('/knight', KnightController);
 app.listen(config.port, logStart);
 
 function logStart() {
+    // eslint-disable-next-line no-console
     console.log(`Listen on port: ${config.port}`);
 }

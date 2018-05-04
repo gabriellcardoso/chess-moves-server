@@ -4,8 +4,9 @@
   "description": "A server to return possible moves from chess pieces.",
   "main": "src/server.js",
   "scripts": {
-    "dev": "./node_modules/.bin/nodemon src/server.js --watch src",
+    "dev": "nodemon src/server.js --watch src",
     "dev-test": "npm test -- --watch tests",
+    "lint": "eslint src/ tests/",
     "start": "node src/server.js",
     "test": "mocha tests/**/*.js"
   },
@@ -30,6 +31,7 @@
   },
   "devDependencies": {
     "chai": "^4.1.2",
+    "eslint": "^4.19.1",
     "mocha": "^5.1.0",
     "nodemon": "^1.17.3"
   }

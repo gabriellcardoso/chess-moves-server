@@ -16,18 +16,18 @@ class Knight {
     constructor(position) {
         this.position = position;
     }
-    
+
     getMoves() {
         const firstTurnMoves = this._getMovesForPosition(this.position.x, this.position.y);
         let secondTurnMoves = [];
-        
+
         firstTurnMoves.forEach(position => {
             let moves = this._getMovesForPosition(position.x, position.y);
             secondTurnMoves = secondTurnMoves.concat(moves);
         });
-        
+
         const moves = [];
-        
+
         secondTurnMoves.forEach(move => {
             if (!moves.some(position => PositionUtils.areEquals(move, position))) {
                 moves.push(move);
@@ -36,10 +36,10 @@ class Knight {
 
         return moves;
     }
-    
+
     _getMovesForPosition(x, y) {
         const moves = [];
-        
+
         directions.forEach(direction => {
             const position = {
                 x: x + direction.x,
@@ -53,7 +53,7 @@ class Knight {
 
         return moves;
     }
-    
+
 }
 
 module.exports = Knight;

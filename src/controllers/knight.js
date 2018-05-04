@@ -6,10 +6,10 @@ const KnightController = express.Router();
 
 KnightController.get('/:notation/moves/', getKnightMoves);
 
-function getKnightMoves(request, response, next) { 
+function getKnightMoves(request, response) {
     try {
         const { notation } = request.params;
-        
+
         const position = PositionUtils.toPosition(notation);
         const moves = new Knight(position).getMoves();
         const notations = moves.map(move => PositionUtils.toNotation(move));

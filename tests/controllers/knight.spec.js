@@ -1,6 +1,5 @@
 const KnightController = require('../../src/controllers/knight');
 const request = require('supertest');
-const { expect } = require('chai');
 const express = require('express');
 
 describe('Given a KnightController', () => {
@@ -10,7 +9,7 @@ describe('Given a KnightController', () => {
 
     const agent = request.agent(app);
 
-    describe('when making requests to /:position/moves/', () => {
+    describe('when receiving requests to /:position/moves/', () => {
         describe('with a valid position in algebric notation', () => {
             const moves = [
                 'E7', 'E5', 'A7', 'A5', 'D8', 'B8', 'D4', 'B4', 'E3',

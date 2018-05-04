@@ -8,7 +8,7 @@ class PositionUtils {
         if (typeof notation !== 'string') {
             throw message;
         }
-        
+
         if (notation.length !== 2) {
             throw message;
         }
@@ -16,8 +16,8 @@ class PositionUtils {
         notation = notation.toUpperCase();
 
         const position = {
-            x : PositionUtils.getX(notation),
-            y : PositionUtils.getY(notation)
+            x: PositionUtils.getX(notation),
+            y: PositionUtils.getY(notation)
         };
 
         if (!PositionUtils.isInsideBoard(position)) {
@@ -30,13 +30,13 @@ class PositionUtils {
     static getX(notation) {
         return notation.charCodeAt(0) - firstBase;
     }
-    
+
     static getY(notation) {
         return notation.charCodeAt(1) - secondBase;
     }
 
     static isInsideBoard(position) {
-        return PositionUtils.isInside(position.x) 
+        return PositionUtils.isInside(position.x)
             && PositionUtils.isInside(position.y);
     }
 
